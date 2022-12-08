@@ -64,9 +64,9 @@ func b(stacks [][]byte, directions []string) {
 		}
 
 		m := len(stacks[from-1]) - n
-        if m < 0 {
-            m = len(stacks[from-1])
-        }
+		if m < 0 {
+			m = len(stacks[from-1])
+		}
 		sub := stacks[from-1][m:]
 		stacks[from-1] = stacks[from-1][:m]
 		stacks[to-1] = append(stacks[to-1], sub...)
@@ -75,9 +75,9 @@ func b(stacks [][]byte, directions []string) {
 	// iterate to find the top of each stack
 
 	for _, stack := range stacks {
-        if len(stack) == 0 {
-            continue
-        }
+		if len(stack) == 0 {
+			continue
+		}
 		fmt.Printf("%s", string(stack[len(stack)-1]))
 	}
 	fmt.Println()
@@ -129,4 +129,3 @@ func main() {
 	// a(stacks, directions)
 	b(stacks, directions)
 }
-

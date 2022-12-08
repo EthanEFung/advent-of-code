@@ -127,11 +127,11 @@ func main() {
 		current += num
 	}
 
-    var total int
+	var total int
 	for i := 0; i < 3; i++ {
-        currentMax := heap.Pop(c)
-        fmt.Println(currentMax)
-        total += currentMax.(int)
+		currentMax := heap.Pop(c)
+		fmt.Println(currentMax)
+		total += currentMax.(int)
 	}
-    fmt.Printf("____________\n%d\n", total)
+	fmt.Printf("____________\n%d\n", total)
 }

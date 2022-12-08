@@ -61,37 +61,36 @@ func partOne(root *Dir) int {
 
 func partTwo(root *Dir) int {
 	totalFS := 70000000
-    used := root.Size()
-    unused := totalFS - used
+	used := root.Size()
+	unused := totalFS - used
 	need := 30000000
-    required := need - unused
-
+	required := need - unused
 
 	// lets just do a breadth first search
-    queue := []*Dir{root}
+	queue := []*Dir{root}
 	best := root.Size()
 
-    for len(queue) > 0 {
-        first := queue[0]
-        queue = queue[1:]
+	for len(queue) > 0 {
+		first := queue[0]
+		queue = queue[1:]
 
-        size := first.Size()
+		size := first.Size()
 
-        if size < required {
-            continue
-        }
+		if size < required {
+			continue
+		}
 
-        if best > size {
-            best = size
-        }
+		if best > size {
+			best = size
+		}
 
-        for _, child := range first.children {
-            folder, ok := child.(*Dir)
-            if ok {
-                queue = append(queue, folder)
-            }
-        }
-    }
+		for _, child := range first.children {
+			folder, ok := child.(*Dir)
+			if ok {
+				queue = append(queue, folder)
+			}
+		}
+	}
 
 	return best
 
@@ -154,5 +153,5 @@ func main() {
 	}
 
 	fmt.Println("Part one:", partOne(root))
-    fmt.Println("Part two:", partTwo(root))
+	fmt.Println("Part two:", partTwo(root))
 }
