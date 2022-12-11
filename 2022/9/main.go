@@ -23,7 +23,6 @@ func (h *Knot) Spring() Knot {
 		if h.x < h.Next.x {
 			return Knot{left, up, h.Next.Next}
 		}
-
 		return Knot{h.Next.x, up, h.Next.Next}
 	}
 
@@ -61,7 +60,6 @@ func (h *Knot) Spring() Knot {
 }
 
 func partOne(motions []string) int {
-	// ...
 	t := Knot{0, 0, nil}
 	h := Knot{0, 0, &t}
 	tails := make(map[Knot]bool)
@@ -87,9 +85,7 @@ func partOne(motions []string) int {
 			tails[tail] = true
 			h.Next = &tail
 		}
-
 	}
-
 	return len(tails)
 }
 func partTwo(motions []string) int {
@@ -124,12 +120,9 @@ func partTwo(motions []string) int {
 				tail := curr.Spring()
 				curr.Next = &tail
 			}
-
 			tails[*curr] = true
 		}
-
 	}
-
 	return len(tails)
 }
 
