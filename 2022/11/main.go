@@ -63,7 +63,7 @@ func (m *monkey) operation(old *big.Int) *big.Int {
 }
 
 func (m *monkey) test(val *big.Int) int {
-    z := new(big.Int)
+	z := new(big.Int)
 	if z.Mod(val, m.divisor).Int64() == 0 {
 		return m.monkeyA
 	} else {
@@ -173,15 +173,14 @@ func parseInputs(f io.Reader) []*monkey {
 	return monkeys
 }
 
-
 func partOne(monkeys []*monkey) {
-    for i, monkey := range monkeys {
-        fmt.Printf("monkey %d: ", i)
-        for _, item := range monkey.items {
-            fmt.Printf("%d,", item)
-        }
-        fmt.Println()
-    }
+	for i, monkey := range monkeys {
+		fmt.Printf("monkey %d: ", i)
+		for _, item := range monkey.items {
+			fmt.Printf("%d,", item)
+		}
+		fmt.Println()
+	}
 	for round := 1; round <= 20; round++ {
 		for _, monkey := range monkeys {
 			n := len(monkey.items)
@@ -191,7 +190,7 @@ func partOne(monkeys []*monkey) {
 
 				val := monkey.operation(item)
 
-                z := new(big.Int)
+				z := new(big.Int)
 
 				val = z.Div(val, big.NewInt(3))
 
@@ -215,11 +214,11 @@ func partOne(monkeys []*monkey) {
 }
 
 func partTwo(monkeys []*monkey) {
-    bigmod := big.NewInt(1)
-    
-    for _, monkey := range monkeys {
-        bigmod = bigmod.Mul(bigmod, monkey.divisor)
-    }
+	bigmod := big.NewInt(1)
+
+	for _, monkey := range monkeys {
+		bigmod = bigmod.Mul(bigmod, monkey.divisor)
+	}
 	for round := 1; round <= 10000; round++ {
 		for _, monkey := range monkeys {
 			n := len(monkey.items)
@@ -230,12 +229,12 @@ func partTwo(monkeys []*monkey) {
 
 				index := monkey.test(val)
 
-                z := new(big.Int)
-                val = z.Mod(val, bigmod)
+				z := new(big.Int)
+				val = z.Mod(val, bigmod)
 				monkeys[index].items = append(monkeys[index].items, val)
 			}
 		}
-        if round == 1 || round == 20 || round%1000 == 0 {
+		if round == 1 || round == 20 || round%1000 == 0 {
 			fmt.Println("Round", round)
 			for i, monkey := range monkeys {
 				fmt.Printf("monkey %d: inspected %d items\n", i, monkey.n)
