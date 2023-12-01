@@ -21,7 +21,7 @@ for line in io.lines() do
     local first = string.len(line)
     local firstDigit = nil
 
-    local last = 0 -- this is fine in lua because tab
+    local last = 0 -- this is fine in lua because tables, strings, etc are 1-indexed
     local lastDigit = nil
     local i, j
 
