@@ -1,0 +1,3 @@
+I love Elixir
+It is so easy to learn
+Great functional code
